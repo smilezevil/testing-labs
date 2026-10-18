@@ -28,13 +28,6 @@ import static org.hamcrest.Matchers.greaterThan;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-/**
- * Лабораторна робота №6: автоматизоване тестування REST API.
- *
- * Застосунок (SUT B, прокат обладнання, варіант 04) запускається цілком на випадковому порту,
- * PostgreSQL — у Docker-контейнері. Тести надсилають справжні HTTP-запити через RestAssured
- * і перевіряють status code та JSON-відповідь, а не викликають сервіс напряму.
- */
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Testcontainers
 @DisplayName("REST API прокату обладнання")
@@ -47,7 +40,6 @@ class RentalApiTest {
             .withPassword("student")
             .withInitScript("migrations/V1__create_tables.sql");
 
-    // Застосунок підключається до бази з контейнера; зовнішню HTTP-політику вимкнено (локальна політика дозволяє оренду)
     @DynamicPropertySource
     static void properties(DynamicPropertyRegistry registry) {
         registry.add("spring.datasource.url", postgres::getJdbcUrl);
@@ -70,7 +62,6 @@ class RentalApiTest {
         RestAssured.port = port;
     }
 
-    // ---------- допоміжні методи ----------
 
     private String uniqueCode() {
         return "EQ-" + UUID.randomUUID().toString().substring(0, 8);
@@ -100,7 +91,6 @@ class RentalApiTest {
                 .extract().jsonPath().getLong("id");
     }
 
-    // ---------- 1. POST: створення ресурсу ----------
 
     @Test
     @DisplayName("POST /equipment: 201, id, Location і поля обладнання")
@@ -135,7 +125,7 @@ class RentalApiTest {
                 .body("reference", equalTo(reference))
                 .body("days", equalTo(3))
                 .body("premium", equalTo(false))
-                .body("total", equalTo(60000))          // 10000 × 2 × 3, без знижки
+                .body("total", equalTo(60000))
                 .body("lateFee", equalTo(0))
                 .body("status", equalTo("Active"))
                 .body("item.equipmentId", equalTo((int) equipmentId))
@@ -147,7 +137,6 @@ class RentalApiTest {
         assertTrue(response.header("Location").endsWith("/rentals/" + id));
     }
 
-    // ---------- 2. GET за id ----------
 
     @Test
     @DisplayName("GET /rentals/{id}: 200, дані збігаються зі створеною орендою")
@@ -170,7 +159,6 @@ class RentalApiTest {
         assertEquals(created.jsonPath().getMap("$"), fetched.jsonPath().getMap("$"));
     }
 
-    // ---------- 3. GET неіснуючого ресурсу ----------
 
     @ParameterizedTest(name = "GET {0} -> 404")
     @CsvSource({
@@ -186,12 +174,11 @@ class RentalApiTest {
                 .body("message", equalTo(expectedMessage));
     }
 
-    // ---------- 4. Action endpoint ----------
 
     @Test
     @DisplayName("POST /rentals/{id}/return: 200, статус Returned, сума не змінюється")
     void returnRental_returns200AndStatusReturned() {
-        long rentalId = createRental(createEquipment(10000, 5), 1, 4, false);   // total = 40000
+        long rentalId = createRental(createEquipment(10000, 5), 1, 4, false);
 
         given()
                 .when().post("/rentals/{id}/return", rentalId)
@@ -207,7 +194,6 @@ class RentalApiTest {
                 .body("status", equalTo("Returned"));
     }
 
-    // ---------- 5. Повторна або заборонена дія ----------
 
     @Test
     @DisplayName("Повторне повернення: 409, code RENTAL_CONFLICT і message")
@@ -248,7 +234,6 @@ class RentalApiTest {
                 .body("message", equalTo("Некоректний запит"));
     }
 
-    // ---------- 6. Незмінність після відхилення ----------
 
     @Test
     @DisplayName("Після 409 наступний GET показує ту саму оренду без змін")
@@ -270,7 +255,6 @@ class RentalApiTest {
         assertEquals(before, after);
     }
 
-    // ---------- 7. Персональне бізнес-правило (параметризація) ----------
 
     @ParameterizedTest(name = "{5}: {0} коп × {1} шт × {2} дн, premium={3} -> {4}")
     @CsvSource({
@@ -299,7 +283,6 @@ class RentalApiTest {
                 .body("premium", equalTo(premium));
     }
 
-    // ---------- 8. Workflow ----------
 
     @Test
     @DisplayName("Workflow: POST → GET → return → GET, id передається з попередньої відповіді")
@@ -322,7 +305,7 @@ class RentalApiTest {
                 .then().statusCode(200)
                 .body("status", equalTo("Active"))
                 .body("item.equipmentId", equalTo((int) equipmentId))
-                .body("total", equalTo(441600));      // 20000 × 2 × 12 = 480000, мінус 8%
+                .body("total", equalTo(441600));
 
         given()
                 .when().post("/rentals/{id}/return", rentalId)

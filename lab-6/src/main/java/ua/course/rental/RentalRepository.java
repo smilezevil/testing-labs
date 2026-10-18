@@ -23,7 +23,6 @@ public class RentalRepository {
         this.suppliedConnection = null;
     }
 
-    // Сумісність із попередніми тестами: з’єднання закриває його власник.
     public RentalRepository(Connection connection) {
         var source = new SingleConnectionDataSource(connection, true);
         this.jdbc = new JdbcTemplate(source);

@@ -13,7 +13,6 @@ public class EquipmentRepository {
     @Autowired
     public EquipmentRepository(JdbcTemplate jdbc) { this.jdbc = jdbc; }
 
-    // З’єднання закриває його власник.
     public EquipmentRepository(Connection connection) {
         this.jdbc = new JdbcTemplate(new SingleConnectionDataSource(connection, true));
     }
