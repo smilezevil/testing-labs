@@ -1,0 +1,3 @@
+# сирі вимірювання JMeter великі; для звіту достатньо HTML-dashboard і statistics.json
+results/**/results.jtl
+results/**/jmeter.log

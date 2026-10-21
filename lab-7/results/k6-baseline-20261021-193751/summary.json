@@ -1,0 +1,207 @@
+{
+    "root_group": {
+        "name": "",
+        "path": "",
+        "id": "d41d8cd98f00b204e9800998ecf8427e",
+        "groups": {},
+        "checks": {
+                "POST /rentals -> 201": {
+                    "name": "POST /rentals -> 201",
+                    "path": "::POST /rentals -> 201",
+                    "id": "b0a5f3776fe20302b006db7da05ecd49",
+                    "passes": 215,
+                    "fails": 0
+                },
+                "POST /rentals -> є id": {
+                    "id": "37060cfd0da74b10101f7d79b67f69da",
+                    "passes": 215,
+                    "fails": 0,
+                    "name": "POST /rentals -> є id",
+                    "path": "::POST /rentals -> є id"
+                },
+                "GET /rentals/{id} -> 200": {
+                    "name": "GET /rentals/{id} -> 200",
+                    "path": "::GET /rentals/{id} -> 200",
+                    "id": "7d59354a0696a7232be2d54b2df0170f",
+                    "passes": 215,
+                    "fails": 0
+                },
+                "GET /rentals/{id} -> Active": {
+                    "passes": 215,
+                    "fails": 0,
+                    "name": "GET /rentals/{id} -> Active",
+                    "path": "::GET /rentals/{id} -> Active",
+                    "id": "8ce6df531085cb09a5dd6ae6a280603e"
+                },
+                "return -> 200": {
+                    "passes": 215,
+                    "fails": 0,
+                    "name": "return -> 200",
+                    "path": "::return -> 200",
+                    "id": "12512200a856d357e76d243ab3265644"
+                },
+                "return -> Returned": {
+                    "name": "return -> Returned",
+                    "path": "::return -> Returned",
+                    "id": "2995e96f459bb4eb607578ead1dafcec",
+                    "passes": 215,
+                    "fails": 0
+                }
+            }
+    },
+    "metrics": {
+        "iteration_duration": {
+            "p(90)": 529.0712668,
+            "p(95)": 540.7038580999999,
+            "max": 773.637792,
+            "avg": 523.6523228744188,
+            "min": 508.531625,
+            "med": 519.013459
+        },
+        "http_req_duration{name:POST /rentals}": {
+            "max": 256.268,
+            "avg": 14.275120930232552,
+            "min": 5.275,
+            "med": 10.978,
+            "p(90)": 16.851400000000005,
+            "p(95)": 24.696099999999934,
+            "thresholds": {
+                "p(95)<500": false
+            }
+        },
+        "data_received": {
+            "count": 199939,
+            "rate": 3313.4493888292645
+        },
+        "vus": {
+            "value": 2,
+            "min": 0,
+            "max": 2
+        },
+        "http_req_blocked": {
+            "avg": 0.022989164086687303,
+            "min": 0.001,
+            "med": 0.007,
+            "p(90)": 0.017,
+            "p(95)": 0.020749999999999973,
+            "max": 2.626
+        },
+        "http_req_receiving": {
+            "avg": 0.15108978328173375,
+            "min": 0.01,
+            "med": 0.121,
+            "p(90)": 0.285,
+            "p(95)": 0.348,
+            "max": 1.52
+        },
+        "http_req_duration": {
+            "avg": 7.5627600619195094,
+            "min": 0.733,
+            "med": 4.3155,
+            "p(90)": 12.6475,
+            "p(95)": 15.12,
+            "max": 285.146,
+            "thresholds": {
+                "p(95)<500": false
+            }
+        },
+        "http_req_tls_handshaking": {
+            "max": 0,
+            "avg": 0,
+            "min": 0,
+            "med": 0,
+            "p(90)": 0,
+            "p(95)": 0
+        },
+        "http_req_waiting": {
+            "p(95)": 14.80775,
+            "max": 283.998,
+            "avg": 7.361515479876158,
+            "min": 0.691,
+            "med": 4.152,
+            "p(90)": 12.299000000000001
+        },
+        "checks": {
+            "passes": 1290,
+            "fails": 0,
+            "thresholds": {
+                "rate>0.99": false
+            },
+            "value": 1
+        },
+        "http_req_duration{expected_response:true}": {
+            "p(90)": 12.6475,
+            "p(95)": 15.12,
+            "max": 285.146,
+            "avg": 7.5627600619195094,
+            "min": 0.733,
+            "med": 4.3155
+        },
+        "http_req_sending": {
+            "p(90)": 0.071,
+            "p(95)": 0.084,
+            "max": 5.838,
+            "avg": 0.05015479876160987,
+            "min": 0.003,
+            "med": 0.022
+        },
+        "http_req_duration{name:POST /rentals/{id}/return}": {
+            "max": 22,
+            "avg": 4.150018604651163,
+            "min": 1.297,
+            "med": 3.74,
+            "p(90)": 6.303000000000001,
+            "p(95)": 8.156599999999992,
+            "thresholds": {
+                "p(95)<500": false
+            }
+        },
+        "http_req_failed": {
+            "passes": 0,
+            "fails": 646,
+            "thresholds": {
+                "rate<0.01": false
+            },
+            "value": 0
+        },
+        "http_req_connecting": {
+            "max": 0.968,
+            "avg": 0.0065464396284829725,
+            "min": 0,
+            "med": 0,
+            "p(90)": 0,
+            "p(95)": 0
+        },
+        "vus_max": {
+            "value": 2,
+            "min": 2,
+            "max": 2
+        },
+        "data_sent": {
+            "count": 87261,
+            "rate": 1446.115600851412
+        },
+        "iterations": {
+            "count": 215,
+            "rate": 3.5630448216620665
+        },
+        "http_req_duration{name:GET /rentals/{id}}": {
+            "avg": 2.972055813953489,
+            "min": 0.733,
+            "med": 2.572,
+            "p(90)": 4.792000000000001,
+            "p(95)": 6.204599999999999,
+            "max": 11.219,
+            "thresholds": {
+                "p(95)<500": false
+            }
+        },
+        "http_reqs": {
+            "count": 646,
+            "rate": 10.705706766482303
+        }
+    },
+    "setup_data": {
+        "equipmentId": 1
+    }
+}

@@ -1,0 +1,207 @@
+{
+    "metrics": {
+        "vus": {
+            "min": 3,
+            "max": 100,
+            "value": 100
+        },
+        "vus_max": {
+            "value": 100,
+            "min": 100,
+            "max": 100
+        },
+        "http_req_duration{name:POST /rentals}": {
+            "avg": 9.599680497925355,
+            "min": 0.723,
+            "med": 7.291,
+            "p(90)": 18.538300000000003,
+            "p(95)": 24.00974999999999,
+            "max": 88.57,
+            "thresholds": {
+                "p(95)<500": false
+            }
+        },
+        "http_req_duration": {
+            "avg": 6.46617726654523,
+            "min": 0.211,
+            "med": 4.289,
+            "p(90)": 14.467,
+            "p(95)": 19.307,
+            "max": 88.57,
+            "thresholds": {
+                "p(95)<500": false
+            }
+        },
+        "http_req_duration{name:GET /rentals/{id}}": {
+            "avg": 4.401043706777334,
+            "min": 0.211,
+            "med": 2.319,
+            "p(90)": 10.422500000000003,
+            "p(95)": 14.997,
+            "max": 54.975,
+            "thresholds": {
+                "p(95)<500": false
+            }
+        },
+        "http_req_blocked": {
+            "max": 6.519,
+            "avg": 0.008225167700142947,
+            "min": 0,
+            "med": 0.002,
+            "p(90)": 0.006,
+            "p(95)": 0.009
+        },
+        "http_req_failed": {
+            "fails": 43381,
+            "passes": 0,
+            "thresholds": {
+                "rate<0.01": false
+            },
+            "value": 0
+        },
+        "checks": {
+            "passes": 86760,
+            "fails": 0,
+            "thresholds": {
+                "rate>0.99": false
+            },
+            "value": 1
+        },
+        "iteration_duration": {
+            "min": 501.599625,
+            "med": 517.4288329999999,
+            "p(90)": 536.4335333,
+            "p(95)": 544.1609767499999,
+            "max": 604.901333,
+            "avg": 520.0120987185335
+        },
+        "http_req_sending": {
+            "max": 4.461,
+            "avg": 0.012321500195936018,
+            "min": 0.001,
+            "med": 0.007,
+            "p(90)": 0.02,
+            "p(95)": 0.032
+        },
+        "http_req_duration{expected_response:true}": {
+            "avg": 6.46617726654523,
+            "min": 0.211,
+            "med": 4.289,
+            "p(90)": 14.467,
+            "p(95)": 19.307,
+            "max": 88.57
+        },
+        "data_received": {
+            "count": 13691570,
+            "rate": 151456.81261738148
+        },
+        "http_req_tls_handshaking": {
+            "avg": 0,
+            "min": 0,
+            "med": 0,
+            "p(90)": 0,
+            "p(95)": 0,
+            "max": 0
+        },
+        "http_req_waiting": {
+            "max": 88.543,
+            "avg": 6.420429658145324,
+            "min": 0.197,
+            "med": 4.24,
+            "p(90)": 14.409,
+            "p(95)": 19.263
+        },
+        "http_req_duration{name:POST /rentals/{id}/return}": {
+            "min": 0.433,
+            "med": 3.495,
+            "p(90)": 11.2382,
+            "p(95)": 15.542749999999979,
+            "max": 57.382,
+            "avg": 5.397027939142435,
+            "thresholds": {
+                "p(95)<500": false
+            }
+        },
+        "http_req_connecting": {
+            "max": 3.422,
+            "avg": 0.0038497037873723564,
+            "min": 0,
+            "med": 0,
+            "p(90)": 0,
+            "p(95)": 0
+        },
+        "http_req_receiving": {
+            "min": 0.003,
+            "med": 0.021,
+            "p(90)": 0.061,
+            "p(95)": 0.086,
+            "max": 4.853,
+            "avg": 0.0334261082040514
+        },
+        "iterations": {
+            "count": 14460,
+            "rate": 159.9572226156194
+        },
+        "data_sent": {
+            "count": 5932563,
+            "rate": 65626.30017096728
+        },
+        "http_reqs": {
+            "count": 43381,
+            "rate": 479.8827298954485
+        }
+    },
+    "setup_data": {
+        "equipmentId": 4
+    },
+    "root_group": {
+        "groups": {},
+        "checks": {
+                "POST /rentals -> 201": {
+                    "path": "::POST /rentals -> 201",
+                    "id": "b0a5f3776fe20302b006db7da05ecd49",
+                    "passes": 14460,
+                    "fails": 0,
+                    "name": "POST /rentals -> 201"
+                },
+                "POST /rentals -> є id": {
+                    "path": "::POST /rentals -> є id",
+                    "id": "37060cfd0da74b10101f7d79b67f69da",
+                    "passes": 14460,
+                    "fails": 0,
+                    "name": "POST /rentals -> є id"
+                },
+                "GET /rentals/{id} -> 200": {
+                    "fails": 0,
+                    "name": "GET /rentals/{id} -> 200",
+                    "path": "::GET /rentals/{id} -> 200",
+                    "id": "7d59354a0696a7232be2d54b2df0170f",
+                    "passes": 14460
+                },
+                "GET /rentals/{id} -> Active": {
+                    "name": "GET /rentals/{id} -> Active",
+                    "path": "::GET /rentals/{id} -> Active",
+                    "id": "8ce6df531085cb09a5dd6ae6a280603e",
+                    "passes": 14460,
+                    "fails": 0
+                },
+                "return -> 200": {
+                    "name": "return -> 200",
+                    "path": "::return -> 200",
+                    "id": "12512200a856d357e76d243ab3265644",
+                    "passes": 14460,
+                    "fails": 0
+                },
+                "return -> Returned": {
+                    "name": "return -> Returned",
+                    "path": "::return -> Returned",
+                    "id": "2995e96f459bb4eb607578ead1dafcec",
+                    "passes": 14460,
+                    "fails": 0
+                }
+            },
+        "name": "",
+        "path": "",
+        "id": "d41d8cd98f00b204e9800998ecf8427e"
+    }
+}

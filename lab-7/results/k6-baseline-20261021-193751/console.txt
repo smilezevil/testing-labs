@@ -1,0 +1,256 @@
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+
+     execution: local
+        script: k6/rental-scenario.js
+ web dashboard: http://127.0.0.1:5665
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 2 max VUs, 1m5s max duration (incl. graceful stop):
+              * rental_flow: Up to 2 looping VUs for 1m0s over 2 stages (gracefulRampDown: 5s, gracefulStop: 5s)
+
+
+running (0m01.0s), 0/2 VUs, 0 complete and 0 interrupted iterations
+rental_flow   [   1% ] 0/2 VUs  0m00.7s/1m00.0s
+
+running (0m02.0s), 0/2 VUs, 0 complete and 0 interrupted iterations
+rental_flow   [   3% ] 0/2 VUs  0m01.7s/1m00.0s
+
+running (0m03.0s), 1/2 VUs, 0 complete and 0 interrupted iterations
+rental_flow   [   5% ] 1/2 VUs  0m02.7s/1m00.0s
+
+running (0m04.0s), 1/2 VUs, 2 complete and 0 interrupted iterations
+rental_flow   [   6% ] 1/2 VUs  0m03.7s/1m00.0s
+
+running (0m05.0s), 1/2 VUs, 4 complete and 0 interrupted iterations
+rental_flow   [   8% ] 1/2 VUs  0m04.7s/1m00.0s
+
+running (0m06.0s), 2/2 VUs, 6 complete and 0 interrupted iterations
+rental_flow   [  10% ] 2/2 VUs  0m05.7s/1m00.0s
+
+running (0m07.0s), 2/2 VUs, 10 complete and 0 interrupted iterations
+rental_flow   [  11% ] 2/2 VUs  0m06.7s/1m00.0s
+
+running (0m08.0s), 2/2 VUs, 14 complete and 0 interrupted iterations
+rental_flow   [  13% ] 2/2 VUs  0m07.7s/1m00.0s
+
+running (0m09.0s), 2/2 VUs, 18 complete and 0 interrupted iterations
+rental_flow   [  15% ] 2/2 VUs  0m08.7s/1m00.0s
+
+running (0m10.0s), 2/2 VUs, 21 complete and 0 interrupted iterations
+rental_flow   [  16% ] 2/2 VUs  0m09.7s/1m00.0s
+
+running (0m11.0s), 2/2 VUs, 25 complete and 0 interrupted iterations
+rental_flow   [  18% ] 2/2 VUs  0m10.7s/1m00.0s
+
+running (0m12.0s), 2/2 VUs, 29 complete and 0 interrupted iterations
+rental_flow   [  20% ] 2/2 VUs  0m11.7s/1m00.0s
+
+running (0m13.0s), 2/2 VUs, 33 complete and 0 interrupted iterations
+rental_flow   [  21% ] 2/2 VUs  0m12.7s/1m00.0s
+
+running (0m14.0s), 2/2 VUs, 37 complete and 0 interrupted iterations
+rental_flow   [  23% ] 2/2 VUs  0m13.7s/1m00.0s
+
+running (0m15.0s), 2/2 VUs, 41 complete and 0 interrupted iterations
+rental_flow   [  25% ] 2/2 VUs  0m14.7s/1m00.0s
+
+running (0m16.0s), 2/2 VUs, 45 complete and 0 interrupted iterations
+rental_flow   [  26% ] 2/2 VUs  0m15.7s/1m00.0s
+
+running (0m17.0s), 2/2 VUs, 49 complete and 0 interrupted iterations
+rental_flow   [  28% ] 2/2 VUs  0m16.7s/1m00.0s
+
+running (0m18.0s), 2/2 VUs, 52 complete and 0 interrupted iterations
+rental_flow   [  30% ] 2/2 VUs  0m17.7s/1m00.0s
+
+running (0m19.0s), 2/2 VUs, 56 complete and 0 interrupted iterations
+rental_flow   [  31% ] 2/2 VUs  0m18.7s/1m00.0s
+
+running (0m20.0s), 2/2 VUs, 60 complete and 0 interrupted iterations
+rental_flow   [  33% ] 2/2 VUs  0m19.7s/1m00.0s
+
+running (0m21.0s), 2/2 VUs, 64 complete and 0 interrupted iterations
+rental_flow   [  35% ] 2/2 VUs  0m20.7s/1m00.0s
+
+running (0m22.0s), 2/2 VUs, 67 complete and 0 interrupted iterations
+rental_flow   [  36% ] 2/2 VUs  0m21.7s/1m00.0s
+
+running (0m23.0s), 2/2 VUs, 71 complete and 0 interrupted iterations
+rental_flow   [  38% ] 2/2 VUs  0m22.7s/1m00.0s
+
+running (0m24.0s), 2/2 VUs, 75 complete and 0 interrupted iterations
+rental_flow   [  40% ] 2/2 VUs  0m23.7s/1m00.0s
+
+running (0m25.0s), 2/2 VUs, 79 complete and 0 interrupted iterations
+rental_flow   [  41% ] 2/2 VUs  0m24.7s/1m00.0s
+
+running (0m26.0s), 2/2 VUs, 83 complete and 0 interrupted iterations
+rental_flow   [  43% ] 2/2 VUs  0m25.7s/1m00.0s
+
+running (0m27.0s), 2/2 VUs, 87 complete and 0 interrupted iterations
+rental_flow   [  45% ] 2/2 VUs  0m26.7s/1m00.0s
+
+running (0m28.0s), 2/2 VUs, 89 complete and 0 interrupted iterations
+rental_flow   [  46% ] 2/2 VUs  0m27.7s/1m00.0s
+
+running (0m29.0s), 2/2 VUs, 93 complete and 0 interrupted iterations
+rental_flow   [  48% ] 2/2 VUs  0m28.7s/1m00.0s
+
+running (0m30.0s), 2/2 VUs, 97 complete and 0 interrupted iterations
+rental_flow   [  50% ] 2/2 VUs  0m29.7s/1m00.0s
+
+running (0m31.0s), 2/2 VUs, 101 complete and 0 interrupted iterations
+rental_flow   [  51% ] 2/2 VUs  0m30.7s/1m00.0s
+
+running (0m32.0s), 2/2 VUs, 105 complete and 0 interrupted iterations
+rental_flow   [  53% ] 2/2 VUs  0m31.7s/1m00.0s
+
+running (0m33.0s), 2/2 VUs, 109 complete and 0 interrupted iterations
+rental_flow   [  55% ] 2/2 VUs  0m32.7s/1m00.0s
+
+running (0m34.0s), 2/2 VUs, 113 complete and 0 interrupted iterations
+rental_flow   [  56% ] 2/2 VUs  0m33.7s/1m00.0s
+
+running (0m35.0s), 2/2 VUs, 117 complete and 0 interrupted iterations
+rental_flow   [  58% ] 2/2 VUs  0m34.7s/1m00.0s
+
+running (0m36.0s), 2/2 VUs, 121 complete and 0 interrupted iterations
+rental_flow   [  60% ] 2/2 VUs  0m35.7s/1m00.0s
+
+running (0m37.0s), 2/2 VUs, 125 complete and 0 interrupted iterations
+rental_flow   [  61% ] 2/2 VUs  0m36.7s/1m00.0s
+
+running (0m38.0s), 2/2 VUs, 129 complete and 0 interrupted iterations
+rental_flow   [  63% ] 2/2 VUs  0m37.7s/1m00.0s
+
+running (0m39.0s), 2/2 VUs, 133 complete and 0 interrupted iterations
+rental_flow   [  65% ] 2/2 VUs  0m38.7s/1m00.0s
+
+running (0m40.0s), 2/2 VUs, 135 complete and 0 interrupted iterations
+rental_flow   [  66% ] 2/2 VUs  0m39.7s/1m00.0s
+
+running (0m41.0s), 2/2 VUs, 139 complete and 0 interrupted iterations
+rental_flow   [  68% ] 2/2 VUs  0m40.7s/1m00.0s
+
+running (0m42.0s), 2/2 VUs, 143 complete and 0 interrupted iterations
+rental_flow   [  70% ] 2/2 VUs  0m41.7s/1m00.0s
+
+running (0m43.0s), 2/2 VUs, 147 complete and 0 interrupted iterations
+rental_flow   [  71% ] 2/2 VUs  0m42.7s/1m00.0s
+
+running (0m44.0s), 2/2 VUs, 151 complete and 0 interrupted iterations
+rental_flow   [  73% ] 2/2 VUs  0m43.7s/1m00.0s
+
+running (0m45.0s), 2/2 VUs, 155 complete and 0 interrupted iterations
+rental_flow   [  75% ] 2/2 VUs  0m44.7s/1m00.0s
+
+running (0m46.0s), 2/2 VUs, 159 complete and 0 interrupted iterations
+rental_flow   [  76% ] 2/2 VUs  0m45.7s/1m00.0s
+
+running (0m47.0s), 2/2 VUs, 163 complete and 0 interrupted iterations
+rental_flow   [  78% ] 2/2 VUs  0m46.7s/1m00.0s
+
+running (0m48.0s), 2/2 VUs, 167 complete and 0 interrupted iterations
+rental_flow   [  80% ] 2/2 VUs  0m47.7s/1m00.0s
+
+running (0m49.0s), 2/2 VUs, 171 complete and 0 interrupted iterations
+rental_flow   [  81% ] 2/2 VUs  0m48.7s/1m00.0s
+
+running (0m50.0s), 2/2 VUs, 173 complete and 0 interrupted iterations
+rental_flow   [  83% ] 2/2 VUs  0m49.7s/1m00.0s
+
+running (0m51.0s), 2/2 VUs, 177 complete and 0 interrupted iterations
+rental_flow   [  85% ] 2/2 VUs  0m50.7s/1m00.0s
+
+running (0m52.0s), 2/2 VUs, 181 complete and 0 interrupted iterations
+rental_flow   [  86% ] 2/2 VUs  0m51.7s/1m00.0s
+
+running (0m53.0s), 2/2 VUs, 185 complete and 0 interrupted iterations
+rental_flow   [  88% ] 2/2 VUs  0m52.7s/1m00.0s
+
+running (0m54.0s), 2/2 VUs, 189 complete and 0 interrupted iterations
+rental_flow   [  90% ] 2/2 VUs  0m53.7s/1m00.0s
+
+running (0m55.0s), 2/2 VUs, 193 complete and 0 interrupted iterations
+rental_flow   [  91% ] 2/2 VUs  0m54.7s/1m00.0s
+
+running (0m56.0s), 2/2 VUs, 197 complete and 0 interrupted iterations
+rental_flow   [  93% ] 2/2 VUs  0m55.7s/1m00.0s
+
+running (0m57.0s), 2/2 VUs, 201 complete and 0 interrupted iterations
+rental_flow   [  95% ] 2/2 VUs  0m56.7s/1m00.0s
+
+running (0m58.0s), 2/2 VUs, 205 complete and 0 interrupted iterations
+rental_flow   [  96% ] 2/2 VUs  0m57.7s/1m00.0s
+
+running (0m59.0s), 2/2 VUs, 209 complete and 0 interrupted iterations
+rental_flow   [  98% ] 2/2 VUs  0m58.7s/1m00.0s
+
+running (1m00.0s), 2/2 VUs, 213 complete and 0 interrupted iterations
+rental_flow   [ 100% ] 2/2 VUs  0m59.7s/1m00.0s
+
+
+  █ THRESHOLDS 
+
+    checks
+    ✓ 'rate>0.99' rate=100.00%
+
+    http_req_duration
+    ✓ 'p(95)<500' p(95)=15.12ms
+
+      {name:GET /rentals/{id}}
+      ✓ 'p(95)<500' p(95)=6.2ms
+
+      {name:POST /rentals}
+      ✓ 'p(95)<500' p(95)=24.69ms
+
+      {name:POST /rentals/{id}/return}
+      ✓ 'p(95)<500' p(95)=8.15ms
+
+    http_req_failed
+    ✓ 'rate<0.01' rate=0.00%
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 1290    21.378269/s
+    checks_succeeded...: 100.00% 1290 out of 1290
+    checks_failed......: 0.00%   0 out of 1290
+
+    ✓ POST /rentals -> 201
+    ✓ POST /rentals -> є id
+    ✓ GET /rentals/{id} -> 200
+    ✓ GET /rentals/{id} -> Active
+    ✓ return -> 200
+    ✓ return -> Returned
+
+    HTTP
+    http_req_duration......................: avg=7.56ms   min=733µs    med=4.31ms   p(90)=12.64ms  p(95)=15.12ms max=285.14ms
+      { expected_response:true }...........: avg=7.56ms   min=733µs    med=4.31ms   p(90)=12.64ms  p(95)=15.12ms max=285.14ms
+      { name:GET /rentals/{id} }...........: avg=2.97ms   min=733µs    med=2.57ms   p(90)=4.79ms   p(95)=6.2ms   max=11.21ms 
+      { name:POST /rentals }...............: avg=14.27ms  min=5.27ms   med=10.97ms  p(90)=16.85ms  p(95)=24.69ms max=256.26ms
+      { name:POST /rentals/{id}/return }...: avg=4.15ms   min=1.29ms   med=3.74ms   p(90)=6.3ms    p(95)=8.15ms  max=22ms    
+    http_req_failed........................: 0.00%  0 out of 646
+    http_reqs..............................: 646    10.705707/s
+
+    EXECUTION
+    iteration_duration.....................: avg=523.65ms min=508.53ms med=519.01ms p(90)=529.07ms p(95)=540.7ms max=773.63ms
+    iterations.............................: 215    3.563045/s
+    vus....................................: 2      min=0        max=2
+    vus_max................................: 2      min=2        max=2
+
+    NETWORK
+    data_received..........................: 200 kB 3.3 kB/s
+    data_sent..............................: 87 kB  1.4 kB/s
+
+
+
+
+running (1m00.3s), 0/2 VUs, 215 complete and 0 interrupted iterations
+rental_flow ✓ [ 100% ] 0/2 VUs  1m0s
