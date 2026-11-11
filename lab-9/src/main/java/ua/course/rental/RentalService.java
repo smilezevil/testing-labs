@@ -16,7 +16,7 @@ public class RentalService {
         if (dailyRate<100 || dailyRate>1000000) throw new IllegalArgumentException("Ціна поза допустимими межами");
         validate(quantity,days);
         long subtotal=dailyRate*quantity*days;
-        int discount=premium ? 12 : days >= 10 ? 8 : 0;
+        int discount=premium ? 12 : days > 10 ? 8 : 0;
         return subtotal-subtotal*discount/100;
     }
     public RentalOrder rent(RentalRequest request) throws SQLException {
