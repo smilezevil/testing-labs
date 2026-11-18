@@ -1,0 +1,78 @@
+
+==================== 0. Підготовка даних через API ====================
+REQUEST:  POST http://127.0.0.1:8083/equipment
+BODY:     {"code":"SEC-EQ-1795030224","dailyRate":10000,"stock":5}
+RESPONSE: HTTP 201
+{"id":2,"code":"SEC-EQ-1795030224","dailyRate":10000,"stock":5}
+
+REQUEST:  POST http://127.0.0.1:8083/rentals
+BODY:     {"reference":"RENT-A-1795030224","equipmentId":2,"quantity":1,"days":10,"premium":false}
+RESPONSE: HTTP 201
+{"id":3,"reference":"RENT-A-1795030224","days":10,"premium":false,"total":92000,"lateFee":0,"status":"Active","item":{"id":3,"equipmentId":2,"quantity":1,"dailyRate":10000}}
+
+REQUEST:  POST http://127.0.0.1:8083/rentals
+BODY:     {"reference":"RENT-B-1795030224","equipmentId":2,"quantity":1,"days":9,"premium":true}
+RESPONSE: HTTP 201
+{"id":4,"reference":"RENT-B-1795030224","days":9,"premium":true,"total":79200,"lateFee":0,"status":"Active","item":{"id":4,"equipmentId":2,"quantity":1,"dailyRate":10000}}
+
+
+==================== 1. SQL Injection: GET /rentals/search ====================
+--- 1.1 Звичайний пошук: має знайти тільки одну оренду
+REQUEST:  GET http://127.0.0.1:8083/rentals/search?reference=RENT-A-1795030224
+RESPONSE: HTTP 200
+[{"id":3,"reference":"RENT-A-1795030224","total":92000,"status":"Active"}]
+
+--- 1.2 Payload ' OR '1'='1 : умова завжди true
+REQUEST:  GET http://127.0.0.1:8083/rentals/search?reference=' OR '1'='1
+RESPONSE: HTTP 200
+[]
+
+--- 1.3 Payload UNION: читаємо дані, яких API не віддає (користувач БД і версія)
+REQUEST:  GET http://127.0.0.1:8083/rentals/search?reference=' UNION SELECT 0, current_user, 0, version() --
+RESPONSE: HTTP 200
+[]
+
+
+==================== 2. Підміна захищених полів: PATCH /rentals/3 ====================
+DB:       SELECT id, reference, total, status FROM rentals WHERE id = 3;
+ id |     reference     | total | status 
+----+-------------------+-------+--------
+  3 | RENT-A-1795030224 | 92000 | Active
+(1 row)
+
+REQUEST:  PATCH http://127.0.0.1:8083/rentals/3
+BODY:     {"reference":"RENT-A-1795030224-EDIT","total":1,"status":"Returned"}
+RESPONSE: HTTP 200
+{"id":3,"reference":"RENT-A-1795030224-EDIT","days":10,"premium":false,"total":92000,"lateFee":0,"status":"Active","item":{"id":3,"equipmentId":2,"quantity":1,"dailyRate":10000}}
+
+--- Перевірка в БД після PATCH:
+DB:       SELECT id, reference, total, status FROM rentals WHERE id = 3;
+ id |       reference        | total | status 
+----+------------------------+-------+--------
+  3 | RENT-A-1795030224-EDIT | 92000 | Active
+(1 row)
+
+
+==================== 3. Витік внутрішньої інформації ====================
+--- 3.1 Пошук з однією лапкою '
+REQUEST:  GET http://127.0.0.1:8083/rentals/search?reference='
+RESPONSE: HTTP 200
+[]
+
+--- 3.2 PATCH із задовгим кодом (> 40 символів)
+REQUEST:  PATCH http://127.0.0.1:8083/rentals/3
+BODY:     {"reference":"THIS-REFERENCE-IS-DEFINITELY-LONGER-THAN-40-CHARS"}
+RESPONSE: HTTP 400
+{"code":"INVALID_REQUEST","message":"Некоректні дані ресурсу"}
+
+
+==================== 4. UI: розкриття конфіденційних даних ====================
+REQUEST:  GET http://127.0.0.1:8083/robots.txt
+RESPONSE: HTTP 200
+User-agent: *
+
+
+REQUEST:  GET http://127.0.0.1:8083/assets/customer-export.json
+RESPONSE: HTTP 404
+{"code":"NOT_FOUND","message":"Маршрут не знайдено"}
+
