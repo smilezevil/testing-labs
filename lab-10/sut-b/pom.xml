@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <parent><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-parent</artifactId><version>3.4.13</version><relativePath/></parent>
   <groupId>ua.course.testing</groupId>
-  <artifactId>sut-b-rental-variant04</artifactId>
+  <artifactId>sut-b-rental-variant04-e2e</artifactId>
   <version>1.0-SNAPSHOT</version>
   <properties>
     <maven.compiler.release>21</maven.compiler.release>
